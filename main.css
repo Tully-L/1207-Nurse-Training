@@ -71,7 +71,7 @@ html, body {
   max-height: 60vh; /* 限制Banner最大高度，避免占比过高 */
   padding: 60px 50px; /* 减少内边距 */
   /* 背景图完整显示（contain），右对齐+垂直居中，不拉伸 */
-  background: url("file:///E:/25_download/1130-Nurse-Test/Nurse_web/nurse.png") center center no-repeat;
+  background: url("/nurse.png") center center no-repeat;
   background-size: contain; /* 图片完整显示且自动缩小 */
   /* 可选：微调背景图缩放比例，比如限制宽度为80%（避免太贴边） */
   /* background-size: 80% auto; */
