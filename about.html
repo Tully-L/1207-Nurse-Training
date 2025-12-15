@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杏林暖芯 - 护理团队</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #333 0%, #555 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 顶部标题 */
+        .top-logo {
+            position: absolute;
+            top: 20px;
+            left: 40px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .top-right-tag {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        /* 主标题 */
+        .main-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            color: #fff;
+            margin: 80px 0 50px;
+            position: relative;
+        }
+        .main-title::after {
+            content: "·";
+            color: #ffb74d;
+            font-size: 40px;
+            position: absolute;
+            margin-left: 8px;
+        }
+
+        /* 团队卡片容器 */
+        .team-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 280px repeat(4, 1fr);
+            grid-template-rows: auto auto;
+            gap: 20px;
+            align-items: start;
+        }
+
+        /* 创始人卡片（大尺寸） */
+        .founder-card {
+            grid-row: 1 / 3;
+            background-color: #ffdde1;
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .founder-card::before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.3);
+            z-index: 0;
+        }
+
+        /* 成员卡片 */
+        .member-card {
+            border-radius: 20px;
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .member-card::before {
+            content: "";
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.3);
+            z-index: 0;
+        }
+
+        /* 卡片底色（护理主题色系） */
+        .card-pink { background-color: #ffdde1; } /* 护理岗 */
+        .card-blue { background-color: #d6eaff; } /* 护理管理岗 */
+        .card-green { background-color: #d9f2e6; } /* 护理教研岗 */
+        .card-orange { background-color: #ffd9b3; } /* 护理技术岗 */
+
+        /* 长方形头像（替换圆形） */
+        .card-avatar {
+            width: 120px;
+            height: 80px;
+            border-radius: 8px;
+            border: 3px solid #fff;
+            overflow: hidden;
+            margin: 0 auto 15px;
+            position: relative;
+            z-index: 1;
+        }
+        .founder-card .card-avatar {
+            width: 180px;
+            height: 120px;
+            margin: 20px auto 25px;
+        }
+        .card-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 文字样式 */
+        .card-position {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+        .founder-card .card-position {
+            font-size: 18px;
+        }
+
+        .card-tag {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-desc {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.5;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 水印与装饰 */
+        .watermark {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        .bottom-decoration {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50%;
+            height: 40%;
+            background: linear-gradient(135deg, #ffb74d 0%, #ff8a00 100%);
+            border-radius: 50% 0 0 0;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-logo">杏林暖芯</div>
+    <div class="top-right-tag">智慧护理 · 专业团队</div>
+
+    <h1 class="main-title">我们是一群专注护理的实干家</h1>
+
+    <div class="team-container">
+        <!-- 创始人卡片（护理学科带头人） -->
+        <div class="founder-card">
+            <div class="card-avatar">
+                <img src="https://picsum.photos/180/120?random=1" alt="护理学科带头人">
+            </div>
+            <div class="card-position">护理学科带头人</div>
+            <div class="card-tag">深耕护理 · 引领实训</div>
+            <div class="card-desc">
+                从事临床护理15年、护理教育8年，专注智慧护理实训体系搭建，<br>
+                擅长将AI技术与护理实操结合，主导3项省级护理培训课题，<br>
+                致力于提升护理人员的实操能力与应急处置水平。
+            </div>
+        </div>
+
+        <!-- 第一排：临床护理岗 -->
+        <div class="member-card card-pink">
+            <div class="card-avatar">
+                <img src="https://picsum.photos/120/80?random=2" alt="内科护理专员">
+            </div>
+            <div class="card-position">内科护理专员</div>
+            <div class="card-tag">精准护理 · 用心服务</div>
+        </div>
+        <div class="member-card card-blue">
+            <div class="card-avatar">
+                <img src="https://picsum.photos/120/80?random=3" alt="护理质控主管">
+            </div>
+            <div class="card-position">护理质控主管</div>
+            <div class="card-tag">规范流程 · 保障安全</div>
+        </div>
+        <div class="member-card card-pink">
+            <div class="card-avatar">
+                <img src="https://picsum.photos/120/80?random=4" alt="外科护理专员">
+            </div>
+            <div class="card-position">外科护理专员</div>
+            <div class="card-tag">精准护理 · 用心服务</div>
+        </div>
+        <div class="member-card card-pink">
+            <div class="card-avatar">
+                <img src="https://picsum.photos/120/80?random=5" alt="急诊护理专员">
+            </div>
+            <div class="card-position">急诊护理专员</div>
+            <div class="card-tag">高效响应 · 守护生命</div>
+        </div>
+
+        <!-- 第二排：护理教研/技术岗 -->
+        <div class="member-card card-orange">
+            <div class="card-avatar">
+                <img src="https://picsum.photos/120/80?random=6" alt="护理实训技术开发">
+            </div>
+            <div class="card-position">护理实训技术开发</div>
+            <div class="card-tag">AI赋能 · 优化实训</div>
+        </div>
+        <div class="member-card card-green">
+            <div class="card-avatar">
+                <img src="https://picsum.photos/120/80?random=7" alt="护理教材研发">
+            </div>
+            <div class="card-position">护理教材研发</div>
+            <div class="card-tag">深耕教研 · 输出专业</div>
+        </div>
+        <div class="member-card card-green">
+            <div class="card-avatar">
+                <img src="https://picsum.photos/120/80?random=8" alt="护理模拟案例设计">
+            </div>
+            <div class="card-position">模拟案例设计师</div>
+            <div class="card-tag">贴近临床 · 还原场景</div>
+        </div>
+        <div class="member-card card-orange">
+            <div class="card-avatar">
+                <img src="https://picsum.photos/120/80?random=9" alt="护理实训系统维护">
+            </div>
+            <div class="card-position">实训系统维护</div>
+            <div class="card-tag">稳定支撑 · 保障体验</div>
+        </div>
+    </div>
+
+    <div class="watermark">杏林暖芯 · 智慧护理团队</div>
+    <div class="bottom-decoration"></div>
+</body>
+</html>

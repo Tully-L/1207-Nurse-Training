@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杏林暖芯 - 智慧护理培训平台</title>
+    <style>
+        /* 全局样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft Yahei", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-y: auto;
+            padding-bottom: 2rem;
+        }
+
+        /* 顶部导航栏样式 */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c7fb8;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #2c7fb8;
+        }
+
+        .contact-btn {
+            padding: 0.5rem 1rem;
+            background-color: #2c7fb8;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background-color: #1f6aa5;
+        }
+
+        /* 主要内容区域样式 */
+        .content {
+            width: 80%;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        /* 提示信息样式 */
+        .tip-box {
+            background-color: #e8f4fc;
+            border-left: 4px solid #2c7fb8;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        /* 标题样式优化 */
+        .content h1 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #2c7fb8;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .content h2 {
+            font-size: 1.5rem;
+            margin: 1.8rem 0 1rem;
+            color: #333;
+        }
+
+        .content h3 {
+            font-size: 1.2rem;
+            margin: 1.2rem 0 0.8rem;
+            color: #444;
+        }
+
+        /* 列表和段落样式 */
+        .content p, .content ul {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .content ul {
+            padding-left: 2rem;
+        }
+
+        .content li {
+            margin-bottom: 0.8rem;
+        }
+
+        .content strong {
+            color: #2c7fb8;
+            font-weight: 600;
+        }
+
+        /* 指令示例样式 */
+        .example {
+            background-color: #f8f9fa;
+            padding: 0.8rem;
+            border-radius: 4px;
+            margin: 0.5rem 0;
+            font-family: "Consolas", "Monaco", monospace;
+            color: #d63384;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+            
+            .nav {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .content {
+                width: 95%;
+                padding: 1rem;
+            }
+            
+            .content h1 {
+                font-size: 1.6rem;
+            }
+            
+            .content h2 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 1. 引入 Coze 官方 SDK（测试版） -->
+    <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.19/libs/cn/index.js"></script>
+    
+    <!-- 2. 引入自定义 SDK 配置 -->
+    <script src="./index.js"></script>
+    
+    <!-- 顶部导航栏 -->
+    <header class="header">
+        <div class="logo">杏林暖蕊</div>
+        <nav class="nav">
+            <a href="index.html">首页</a>
+            <a href="about.html">关于我们</a>
+            <a href="#">SP资源库</a>
+            <button class="contact-btn">联系我们</button>
+        </nav>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <div class="content">
+        <div class="tip-box">
+            <strong>操作提示：</strong> 右下角“开始生成”按钮 | 【对话说明】仅在智能体输入框发送指令，所有操作指引、分析结果等均由智能体输出。本指南为精简交互指令参考。
+        </div>
+
+        <h1>一、核心交互指令</h1>
+        <p>向智能体发送以下指令，获取对应输出。</p>
+
+        <h2>二、基础功能指令</h2>
+        <ul>
+            <li>
+                <strong>1. 加载病例：</strong> 发送“加载病例+病例名称”
+                <div class="example">示例：加载病例 高血压老人</div>
+                <p>智能体输出：病例背景、角色设定</p>
+            </li>
+            <li>
+                <strong>2. 开始AI问诊：</strong> 发送“开始AI角色扮演”
+                <p>智能体输出：以学生护士身份发起问诊</p>
+            </li>
+            <li>
+                <strong>3. 查看实时反馈：</strong> 发送“查看实时反馈”
+                <p>智能体输出：当前回应的优化提示</p>
+            </li>
+            <li>
+                <strong>4. 生成病例：</strong> 发送“生成病例+疾病名称+教学目标+角色性格”
+                <div class="example">示例：生成病例 糖尿病足 评估伤口换药沟通技巧 焦虑不配合</div>
+                <p>智能体输出：结构化病例脚本</p>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

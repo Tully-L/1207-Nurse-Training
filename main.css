@@ -2,3 +2,165 @@ html, body {
     height: 100%;
     margin: 0;
   }
+  /* 全局样式重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Microsoft Yahei", sans-serif;
+}
+
+/* 顶部导航栏 - 精简高度，减少占用空间 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px; /* 减少上下内边距 */
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 10;
+  height: 60px; /* 固定导航栏高度，方便计算 */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 22px; /* 略缩小logo字体 */
+  font-weight: bold;
+  color: #1E88E5;
+}
+
+.logo::before {
+  content: "+";
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  background: #1E88E5;
+  color: #fff;
+  border-radius: 50%;
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 25px; /* 缩小导航间距 */
+}
+
+.nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 15px; /* 略缩小导航字体 */
+}
+
+.contact-btn {
+  background: #1E88E5;
+  color: #fff !important;
+  padding: 6px 18px; /* 缩小按钮内边距 */
+  border-radius: 4px;
+}
+
+/* Banner区域 - 适配可视区域，背景图缩小且完整显示 */
+.banner {
+  /* 高度 = 可视高度 - 导航栏高度 - 功能区高度（预留） */
+  min-height: calc(100vh - 60px - 220px); 
+  max-height: 60vh; /* 限制Banner最大高度，避免占比过高 */
+  padding: 60px 50px; /* 减少内边距 */
+  /* 背景图完整显示（contain），右对齐+垂直居中，不拉伸 */
+  background: url("file:///E:/25_download/1130-Nurse-Test/Nurse_web/nurse.png") center center no-repeat;
+  background-size: contain; /* 图片完整显示且自动缩小 */
+  /* 可选：微调背景图缩放比例，比如限制宽度为80%（避免太贴边） */
+  /* background-size: 80% auto; */
+  background-color: rgba(161, 194, 240, 0.344); /* 背景底色，避免图片外区域空白 */
+  position: relative;
+}
+
+/* 轻量遮罩，保证文字清晰 */
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.065);
+  z-index: 1;
+}
+
+.banner-text {
+  max-width: 500px; /* 缩小文字区域宽度 */
+  position: relative;
+  z-index: 2;
+}
+
+.banner h1 {
+  font-size: 36px; /* 略缩小标题 */
+  color: #1E88E5;
+  margin-bottom: 15px;
+}
+
+.banner p {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* 功能模块区 - 精简高度，确保完全显示 */
+.functions-wrap {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 50px 50px; /* 减少上下内边距 */
+  margin: 0 auto;
+  max-width: 1200px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 10;
+  height: 220px; /* 固定功能区高度 */
+  display: flex;
+  align-items: center; /* 按钮垂直居中 */
+  justify-content: center;
+}
+
+.functions {
+  display: flex;
+  justify-content: center;
+  gap: 40px; /* 缩小按钮间距 */
+  flex-wrap: wrap;
+}
+
+.func-btn {
+  padding: 30px 60px; /* 适度放大按钮（不超范围） */
+  border: none;
+  border-radius: 8px;
+  font-size: 22px;
+  color: #fff;
+  cursor: pointer;
+  min-width: 200px;
+  transition: opacity 0.3s;
+}
+
+.func-btn:hover {
+  opacity: 0.9;
+}
+
+.sp-trainer {
+  background: #1E88E5;
+}
+
+.sim-case {
+  background: #26A69A;
+}
+
+.personal-center {
+  background: #26A69A;
+}
+
+/* 全局控制 - 确保无滚动条 */
+body {
+  min-height: 100vh;
+  overflow: hidden; /* 完全禁止滚动，确保内容都在可视区 */
+}
