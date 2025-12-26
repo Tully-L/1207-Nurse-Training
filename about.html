@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,6 +48,7 @@
             margin: 80px 0 50px;
             position: relative;
         }
+
         .main-title::after {
             content: "·";
             color: #ffb74d;
@@ -74,10 +76,11 @@
             border-radius: 20px;
             padding: 30px 20px;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
         }
+
         .founder-card::before {
             content: "";
             position: absolute;
@@ -86,7 +89,7 @@
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            background-color: rgba(255,255,255,0.3);
+            background-color: rgba(255, 255, 255, 0.3);
             z-index: 0;
         }
 
@@ -95,10 +98,11 @@
             border-radius: 20px;
             padding: 20px 15px;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
         }
+
         .member-card::before {
             content: "";
             position: absolute;
@@ -107,15 +111,31 @@
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            background-color: rgba(255,255,255,0.3);
+            background-color: rgba(255, 255, 255, 0.3);
             z-index: 0;
         }
 
         /* 卡片底色（护理主题色系） */
-        .card-pink { background-color: #ffdde1; } /* 护理岗 */
-        .card-blue { background-color: #d6eaff; } /* 护理管理岗 */
-        .card-green { background-color: #d9f2e6; } /* 护理教研岗 */
-        .card-orange { background-color: #ffd9b3; } /* 护理技术岗 */
+        .card-pink {
+            background-color: #ffdde1;
+        }
+
+        /* 护理岗 */
+        .card-blue {
+            background-color: #d6eaff;
+        }
+
+        /* 护理管理岗 */
+        .card-green {
+            background-color: #d9f2e6;
+        }
+
+        /* 护理教研岗 */
+        .card-orange {
+            background-color: #ffd9b3;
+        }
+
+        /* 护理技术岗 */
 
         /* 长方形头像（替换圆形） */
         .card-avatar {
@@ -128,11 +148,13 @@
             position: relative;
             z-index: 1;
         }
+
         .founder-card .card-avatar {
             width: 180px;
             height: 120px;
             margin: 20px auto 25px;
         }
+
         .card-avatar img {
             width: 100%;
             height: 100%;
@@ -148,6 +170,7 @@
             position: relative;
             z-index: 1;
         }
+
         .founder-card .card-position {
             font-size: 18px;
         }
@@ -187,11 +210,152 @@
             border-radius: 50% 0 0 0;
             z-index: -1;
         }
+
+        /* 编辑按钮样式 */
+        .edit-btn {
+            position: fixed;
+            top: 20px;
+            right: 200px;
+            background: #ffb74d;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            z-index: 1000;
+        }
+
+        .edit-btn:hover {
+            background: #ff8a00;
+        }
+
+        /* 弹窗样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .modal-content h3 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .modal-buttons button {
+            margin: 0 10px;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .modal-buttons button:first-child {
+            background: #ffb74d;
+            color: white;
+        }
+
+        .modal-buttons button:last-child {
+            background: #ccc;
+            color: #333;
+        }
+
+        /* 编辑模式样式 */
+        .edit-mode .editable {
+            border: 2px dashed #ffb74d;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .edit-mode .editable:hover {
+            background-color: rgba(255, 183, 77, 0.1);
+        }
+
+        .edit-controls {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .edit-controls button {
+            margin: 0 5px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .save-btn {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .cancel-btn {
+            background: #f44336;
+            color: white;
+        }
+
+        /* 图片编辑样式 */
+        .image-upload {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 1001;
+        }
     </style>
 </head>
+
 <body>
     <div class="top-logo">杏林暖芯</div>
     <div class="top-right-tag">智慧护理 · 专业团队</div>
+
+    <!-- 编辑按钮 -->
+    <button id="editBtn" class="edit-btn">编辑</button>
+
+    <!-- 密码输入弹窗 -->
+    <div id="passwordModal" class="modal">
+        <div class="modal-content">
+            <h3>请输入管理密码</h3>
+            <input type="password" id="passwordInput" placeholder="请输入密码">
+            <div class="modal-buttons">
+                <button onclick="checkPassword()">确认</button>
+                <button onclick="closeModal()">取消</button>
+            </div>
+        </div>
+    </div>
 
     <h1 class="main-title">我们是一群专注护理的实干家</h1>
 
@@ -273,5 +437,236 @@
 
     <div class="watermark">杏林暖芯 · 智慧护理团队</div>
     <div class="bottom-decoration"></div>
+
+    <!-- 编辑控制按钮 -->
+    <div class="edit-controls" id="editControls">
+        <button class="save-btn" onclick="saveChanges()">保存</button>
+        <button class="cancel-btn" onclick="cancelEdit()">取消</button>
+    </div>
+
+    <!-- 图片上传弹窗 -->
+    <div class="image-upload" id="imageUpload">
+        <h4>更换图片</h4>
+        <input type="file" id="imageInput" accept="image/*">
+        <div style="margin-top: 10px;">
+            <button onclick="uploadImage()">确认</button>
+            <button onclick="closeImageUpload()">取消</button>
+        </div>
+    </div>
+
+    <script>
+        let isEditMode = false;
+        let originalData = {};
+        let currentEditingImage = null;
+
+        // 编辑按钮点击事件
+        document.getElementById('editBtn').addEventListener('click', function () {
+            document.getElementById('passwordModal').style.display = 'block';
+        });
+
+        // 密码验证
+        function checkPassword() {
+            const password = document.getElementById('passwordInput').value;
+            if (password === '20251226') {
+                closeModal();
+                enterEditMode();
+            } else {
+                alert('密码错误！');
+                document.getElementById('passwordInput').value = '';
+            }
+        }
+
+        // 关闭弹窗
+        function closeModal() {
+            document.getElementById('passwordModal').style.display = 'none';
+            document.getElementById('passwordInput').value = '';
+        }
+
+        // 进入编辑模式
+        function enterEditMode() {
+            isEditMode = true;
+            document.body.classList.add('edit-mode');
+            document.getElementById('editControls').style.display = 'block';
+            document.getElementById('editBtn').style.display = 'none';
+
+            // 保存原始数据
+            saveOriginalData();
+
+            // 添加可编辑标识
+            addEditableElements();
+        }
+
+        // 保存原始数据
+        function saveOriginalData() {
+            const editableTexts = document.querySelectorAll('.card-position, .card-tag, .card-desc, .main-title');
+            editableTexts.forEach((element, index) => {
+                originalData[`text_${index}`] = element.innerHTML;
+            });
+
+            const images = document.querySelectorAll('.card-avatar img');
+            images.forEach((img, index) => {
+                originalData[`img_${index}`] = img.src;
+            });
+        }
+
+        // 添加可编辑元素
+        function addEditableElements() {
+            // 文字可编辑
+            const editableTexts = document.querySelectorAll('.card-position, .card-tag, .card-desc, .main-title');
+            editableTexts.forEach(element => {
+                element.classList.add('editable');
+                element.contentEditable = true;
+                element.addEventListener('focus', function () {
+                    this.style.outline = '2px solid #ffb74d';
+                });
+                element.addEventListener('blur', function () {
+                    this.style.outline = 'none';
+                });
+            });
+
+            // 图片可编辑
+            const images = document.querySelectorAll('.card-avatar img');
+            images.forEach(img => {
+                img.classList.add('editable');
+                img.addEventListener('click', function () {
+                    currentEditingImage = this;
+                    document.getElementById('imageUpload').style.display = 'block';
+                });
+            });
+        }
+
+        // 上传图片
+        function uploadImage() {
+            const fileInput = document.getElementById('imageInput');
+            const file = fileInput.files[0];
+
+            if (file && currentEditingImage) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    currentEditingImage.src = e.target.result;
+                    closeImageUpload();
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // 关闭图片上传弹窗
+        function closeImageUpload() {
+            document.getElementById('imageUpload').style.display = 'none';
+            document.getElementById('imageInput').value = '';
+            currentEditingImage = null;
+        }
+
+        // 保存更改
+        function saveChanges() {
+            if (confirm('确定要保存所有更改吗？')) {
+                // 这里可以添加保存到服务器的逻辑
+                // 目前只是保存到本地存储
+                const currentData = {};
+
+                const editableTexts = document.querySelectorAll('.card-position, .card-tag, .card-desc, .main-title');
+                editableTexts.forEach((element, index) => {
+                    currentData[`text_${index}`] = element.innerHTML;
+                });
+
+                const images = document.querySelectorAll('.card-avatar img');
+                images.forEach((img, index) => {
+                    currentData[`img_${index}`] = img.src;
+                });
+
+                localStorage.setItem('teamPageData', JSON.stringify(currentData));
+
+                exitEditMode();
+                alert('保存成功！');
+            }
+        }
+
+        // 取消编辑
+        function cancelEdit() {
+            if (confirm('确定要取消编辑吗？所有未保存的更改将丢失。')) {
+                // 恢复原始数据
+                const editableTexts = document.querySelectorAll('.card-position, .card-tag, .card-desc, .main-title');
+                editableTexts.forEach((element, index) => {
+                    element.innerHTML = originalData[`text_${index}`];
+                });
+
+                const images = document.querySelectorAll('.card-avatar img');
+                images.forEach((img, index) => {
+                    img.src = originalData[`img_${index}`];
+                });
+
+                exitEditMode();
+            }
+        }
+
+        // 退出编辑模式
+        function exitEditMode() {
+            isEditMode = false;
+            document.body.classList.remove('edit-mode');
+            document.getElementById('editControls').style.display = 'none';
+            document.getElementById('editBtn').style.display = 'block';
+
+            // 移除可编辑属性
+            const editableElements = document.querySelectorAll('.editable');
+            editableElements.forEach(element => {
+                element.classList.remove('editable');
+                element.contentEditable = false;
+                element.style.outline = 'none';
+            });
+
+            closeImageUpload();
+        }
+
+        // 页面加载时恢复保存的数据
+        window.addEventListener('load', function () {
+            const savedData = localStorage.getItem('teamPageData');
+            if (savedData) {
+                const data = JSON.parse(savedData);
+
+                const editableTexts = document.querySelectorAll('.card-position, .card-tag, .card-desc, .main-title');
+                editableTexts.forEach((element, index) => {
+                    if (data[`text_${index}`]) {
+                        element.innerHTML = data[`text_${index}`];
+                    }
+                });
+
+                const images = document.querySelectorAll('.card-avatar img');
+                images.forEach((img, index) => {
+                    if (data[`img_${index}`]) {
+                        img.src = data[`img_${index}`];
+                    }
+                });
+            }
+        });
+
+        // 键盘快捷键
+        document.addEventListener('keydown', function (e) {
+            if (isEditMode) {
+                if (e.ctrlKey && e.key === 's') {
+                    e.preventDefault();
+                    saveChanges();
+                }
+                if (e.key === 'Escape') {
+                    cancelEdit();
+                }
+            }
+        });
+
+        // 点击弹窗外部关闭
+        window.addEventListener('click', function (e) {
+            const modal = document.getElementById('passwordModal');
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // 回车键确认密码
+        document.getElementById('passwordInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+    </script>
 </body>
+
 </html>
