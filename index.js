@@ -7,9 +7,9 @@ window.cozeChatClient = new CozeWebSDK.WebChatClient({
   },
   auth: {
     type: 'token',
-    token: 'pat_duOuhtXMUYLj3b0k3buM2RPLttA3Fd8pQKoIdJQIoBHxLXnKkdwidQLSJyP0aUl0',
+    token: 'pat_NjpNiG3gXzLJoLcLROlJPdGj55TpDJd5ijwZgaGnaC6xmK8MAa0Olz8nexSUI9i8',
     onRefreshToken: async () => {
-      return 'pat_duOuhtXMUYLj3b0k3buM2RPLttA3Fd8pQKoIdJQIoBHxLXnKkdwidQLSJyP0aUl0';
+      return 'pat_NjpNiG3gXzLJoLcLROlJPdGj55TpDJd5ijwZgaGnaC6xmK8MAa0Olz8nexSUI9i8';
     }
   },
   userInfo: {
